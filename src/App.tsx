@@ -1,9 +1,10 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import { Toaster } from "@/components/ui/sonner"; // Corrected typo here
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
 import { CustomNavbar } from "@/components/CustomNavbar";
 import { SplashCursor } from "@/components/ui/splash-cursor";
 import CV from "@/pages/CV";
+import Projects from "@/pages/Projects";
 
 function App() {
   return (
@@ -13,7 +14,11 @@ function App() {
         <div className="min-h-screen flex flex-col">
           <CustomNavbar />
           <main className="flex-1">
-            <CV />
+            <Routes>
+              <Route path="/" element={<CV />} />
+              <Route path="/projects" element={<Projects />} />
+              {/* Add other routes as needed */}
+            </Routes>
           </main>
           <footer className="border-t py-6 md:py-0">
             <div className="container flex flex-col md:flex-row items-center justify-between gap-4 md:h-16">
